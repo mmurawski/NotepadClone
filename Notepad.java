@@ -1,13 +1,10 @@
 // 
 //    Name:  Murawski, Mateusz
-//    Homework: 5#
 //    Due:       May 9, 2019
-//    Course: cs-2450-02-sp19 
 // 
 //    Description: 
 // 	  Copy of Notepad found in Windows operating system.  
-//
-//
+
 
 
 import java.awt.BorderLayout;
