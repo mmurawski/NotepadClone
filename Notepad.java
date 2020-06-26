@@ -82,8 +82,7 @@ public class Notepad implements ActionListener {
 	        	{
 	        		 System.exit(0);
 	        	}
-	        	//upewnij sie ze viewchanged is false
-	        	//jezeli jest true to daj dialog czy 
+	        	
 	           
 	        }
 	        else if(ae.getActionCommand().equals("Don't Save"))
@@ -108,17 +107,12 @@ public class Notepad implements ActionListener {
 	        }
 	        else if(ae.getActionCommand().equals("Open..."))
 	        {
-	        	//najpierw upewnij sie czy chcesz zapisac 
-	        	//jezeli zostalo cos zmienione
+	        
 	        	
 	        	if(viewChanged==true)
 	        	{
 	        		 areUSure.setVisible(true);
-	        		 //daj tutaj czy chcesz zapisac zmiany
-	        		 //if nacisneli kansel to wyjebnokgo cofaj do glownego
-	        		 //jesli nacisneli don't save to wtedy rob wszystko jak gdyby nigdy nic
-	        		 //jesli nacisneli save to bierzesz wszystko i zapisuejsz zmiankio
-	        		 
+	        
 	        	}
 	        	else
 	        	{
@@ -128,7 +122,6 @@ public class Notepad implements ActionListener {
 	    	    int approved = fileChooser.showOpenDialog(fram);
 	    	    if(approved == JFileChooser.APPROVE_OPTION)
 	    	    {
-	    	       //filePath = fileChooser.getSelectedFile().getAbsolutePath();
 	    	    	filePath = fileChooser.getSelectedFile().toString();
 	    	    	fileName = fileChooser.getSelectedFile().getName();
 	    	    	String name = fileChooser.getSelectedFile().getName();
@@ -166,8 +159,7 @@ public class Notepad implements ActionListener {
 		    	    mainTxtView.setCaretPosition(0);
 		    	     
 	    	    }
-	    	    
-	    	    //viewChanged=false;
+
 
 	        }
 	        else if(ae.getActionCommand().equals("Go to..."))
@@ -177,21 +169,15 @@ public class Notepad implements ActionListener {
 	        }
 	        else if(ae.getActionCommand().equals("Go To"))
 	        {
-	        	//bedziesz musial sam to obliczac
-	        	//get text from main view
-	        	//update charsInALine 
-	        	//update lineCount
+
 	        	
 	        	String allTheText = mainTxtView.getText();
 	        	String[] SeperatedLines = allTheText.split("\n");
 	        	int lineNum = SeperatedLines.length;
 	        	
-	        	
-	        	
 	        	//this is the number that user inputs
 	        	//represent the line number we want to go to.
 	        	
-	        	//int line = Integer.parseInt(goToArea.getText())-1;
 	        	int line = Integer.parseInt(goToArea.getText())-1;
 	      
 	        	int caretPos = 0;
@@ -208,7 +194,6 @@ public class Notepad implements ActionListener {
 		        		caretPos = caretPos+1+ SeperatedLines[i].length();
 		        	}
 		        	//illegal argumenta tu masz
-	        		// staraj sie go zlapac
 		        	mainTxtView.setCaretPosition(caretPos);	
 			    	goToDialog.setVisible(false);
 	        	}
@@ -216,14 +201,12 @@ public class Notepad implements ActionListener {
 	        }
 	        else if(ae.getActionCommand().equals("Save"))
 	        {
-	        	//jesli filepath jest null otworz save as.
 	        	if(filePath == null)
 	        	{
 		    	    int approved = fileChooser.showSaveDialog(fram);
 			    	   
 		    	    if(approved == JFileChooser.APPROVE_OPTION)
 		    	    {
-		    	       //filePath = fileChooser.getSelectedFile().getAbsolutePath();
 		    	    	filePath = fileChooser.getSelectedFile().toString();
 		    	    	
 		    	    	String chosenExt = fileChooser.getFileFilter().getDescription();
@@ -314,13 +297,11 @@ public class Notepad implements ActionListener {
 	        }
 	        else if(ae.getActionCommand().equals("Save As..."))
 	        {
-	        	//jesli filepath jest null otworz save as.
-	        	//save as powinnenes pokazac nowy filepath
-	        
+	      
 	    	    int approved = fileChooser.showSaveDialog(fram);
 	    	    if(approved == JFileChooser.APPROVE_OPTION)
 	    	    {
-	    	       //filePath = fileChooser.getSelectedFile().getAbsolutePath();
+
 	    	    	
 	    	    	filePath = fileChooser.getSelectedFile().toString();
 	    	    	String chosenExt = fileChooser.getFileFilter().getDescription();
@@ -705,9 +686,6 @@ public class Notepad implements ActionListener {
 		goToDialog.add(goToBttn2);
 		
 		//goToDialog.pack();
-		
-		
-		
 		JMenu formatMenu = new JMenu("Format");
 		
 		JCheckBoxMenuItem formatWrapMI = new JCheckBoxMenuItem("Word Wrap");
